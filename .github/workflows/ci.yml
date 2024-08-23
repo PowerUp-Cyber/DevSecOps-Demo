@@ -18,3 +18,11 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 
+- name: SonarCloud Scan
+  uses: SonarSource/sonarcloud-github-action@v1
+  with:
+    args: >
+      -Dsonar.projectKey=DevSecOps-Demo
+      -Dsonar.organization=powerup-cyber
+      -Dsonar.host.url=https://sonarcloud.io
+      -Dsonar.login=${{ secrets.SONAR_TOKEN }}
